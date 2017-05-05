@@ -631,14 +631,14 @@ declare namespace Facebook
          * @param ids user ids
          * @param callback callback called when the query is done
          */
-        public getUserInfo(ids: string, callback: (err: Facebook.IError, obj: Facebook.IUserInfo) => void): void;
+        public getUserInfo(ids: string, callback: (err: Facebook.IError, obj: Facebook.IUserInfoDictionary) => void): void;
 
         /**
          * returns some information about the given users
          * @param ids user id
          * @param callback callback called when the query is done
          */
-        public getUserInfo(ids: string[], callback: (err: Facebook.IError, obj: Facebook.IUserInfo) => void): void;
+        public getUserInfo(ids: string[], callback: (err: Facebook.IError, obj: Facebook.IUserInfoDictionary) => void): void;
 
         /**
          * accept or ignore message request(s) with id `threadID`
