@@ -2,7 +2,7 @@
 
 # How to install
 ```bash
-typings install facebook-chat-api=github:legion44/facebook-chat-api-typings/index.d.ts
+typings install facebook-chat-api=github:legion44/facebook-chat-api-typings/index.d.ts --global
 ```
 
 # Documentation
