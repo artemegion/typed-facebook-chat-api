@@ -1,4 +1,4 @@
 {
     "name": "facebook-chat-api",
-    "main": "lib/index.d.ts"
+    "main": "index.d.ts"
 }
