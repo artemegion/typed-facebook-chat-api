@@ -1,5 +1,5 @@
 # Typings for [facebook-chat-api](https://www.npmjs.com/package/facebook-chat-api) module
-These typings are built basing on the [documentation](https://github.com/Schmavery/facebook-chat-api/blob/master/DOCS.md) but some changes were applied where callback results were different from the ones specified in the documentation. Typings are tested on the bleeding edge version of facebook-chat-api and are updated accordingly (with some delay of course).
+These typings are built basing on the [documentation](https://github.com/Schmavery/facebook-chat-api/blob/master/DOCS.md). Typings are tested on the bleeding edge version of facebook-chat-api and are updated accordingly (with some delay of course).
 
 # How to install
 The below command will install newest version of the typings, they should match the bleeding edge version of [facebook-chat-api](https://github.com/Schmavery/facebook-chat-api#bleeding-edge).
