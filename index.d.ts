@@ -128,38 +128,27 @@ declare namespace Facebook
 
     interface IThreadInfo
     {
-        participantIDs: Array<string>;
-        name: string;
-        snippet: string;
-        messageCount: number;
-        emoji: string;
-        nicknames: Array<string>;
-        color: string;
-    }
-
-    interface IThreadInfoEx
-    {
         threadID: string;
         participantIDs: Array<string>;
         formerParticipants: Array<string>;
         name: string;
-        nicknames: Array<string>;
+        nicknames?: Array<string>;
         snippet: string;
         snippetHasAttachment: boolean;
-        snippetAttachments: Array<any>;
-        snippetSender: string;
+        snippetAttachments: Array<IAttachment>;
+        snippedSender: string;
         unreadCount: number;
         messageCount: number;
-        imageSrc: string;
+        imageSrc?: string;
         timestamp: number;
         serverTimestamp: number;
         muteSettings: any;
         isCanonicalUser: boolean;
         isCanonical: boolean;
-        canonicaFbid: any;
+        canonicalFbid: string;
         isSubscribed: boolean;
         rootMessageThreadingID: string;
-        folder: any;
+        folder: string;
         isArchived: boolean;
         recipientsLoadable: boolean;
         hasEmailParticipant: boolean;
@@ -168,6 +157,9 @@ declare namespace Facebook
         composerEnabled: boolean;
         blockedParticipants: Array<string>;
         lastMessageID: string;
+        emoji?: string;
+        color?: string;
+        lastReadTimestamp: number;
     }
 
     interface IReceived
@@ -608,7 +600,7 @@ declare namespace Facebook
          * @param type thread types
          * @param callback callback called when the query is done, either with an error or with an confirmation object
          */
-        public getThreadList(start: number, end: number, type: 'inbox' | 'pending' | 'archived', callback: (err: Facebook.IError, arr: Array<Facebook.IThreadInfoEx>) => void): void;
+        public getThreadList(start: number, end: number, type: 'inbox' | 'pending' | 'archived', callback: (err: Facebook.IError, arr: Array<Facebook.IThreadInfo>) => void): void;
 
         /**
          * returns pictures sent in the thread
