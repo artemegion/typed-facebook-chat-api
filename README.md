@@ -7,9 +7,9 @@ The below command will install newest version of the typings, they should match 
 typings install facebook-chat-api=github:legion44/facebook-chat-api-typings/index.d.ts --global --save
 ```
 
-The below command will install typings compatible with [faceboot-chat-api commit 2ad4b25abdc594b63c87692843308e5d26050570](https://github.com/Schmavery/facebook-chat-api/commit/2ad4b25abdc594b63c87692843308e5d26050570)
+The below command will install typings compatible with [version 1.4.0](https://github.com/Schmavery/facebook-chat-api/blob/master/CHANGELOG.md#140-2017-04-28).
 ```batch
-typings install faceboot-chat-api=github:legion44/facebook-chat-api-typings/index.d.ts#fdf8bfc69126ee2ff254c4f86dcc68577e6910f1 --global --save
+typings install faceboot-chat-api=github:legion44/facebook-chat-api-typings/index.d.ts#02948563e179b7863216bb1f164296a0481218d5 --global --save
 ```
 
 # Example usage
