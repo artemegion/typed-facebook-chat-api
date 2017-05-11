@@ -509,7 +509,7 @@ declare namespace Facebook
 
 
         /** returns current `appState` which can be saved to a file or stored in a variable */
-        public getAppState(): void;
+        public getAppState(): any;
 
         /** returns the currently logged-in user's id */
         public getCurrentUserID(): string;
