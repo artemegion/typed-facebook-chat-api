@@ -55,11 +55,6 @@ declare namespace Facebook
         type: string;
     }
 
-    interface IUserInfoDictionary
-    {
-        [id: string]: IUserInfo;
-    }
-
     interface IUserInfo
     {
         name: string;
@@ -224,7 +219,6 @@ declare namespace Facebook
         senderID: string;
         messageID: string;
         offlineThreadingID: string;
-
         timestamp: number;
     }
 
@@ -244,187 +238,112 @@ declare namespace Facebook
     interface IStickerAttachment extends IAttachment {
         /** sticker */
         type: 'sticker';
-
         url: string;
-
         stickerID: string;
-
         packID: string;
-
         frameCount: number;
-
         frameRate: number;
-
         framesPerRow: number;
-
         framesPerCol: number;
-
         /** url for sticker's sprite */
         spriteURI: string;
-
         /** url for sticker's sprite 2x larger than `spriteURI` */
         spriteURI2x: string;
-
         height: number;
-        
         width: number;
-
         caption?: string;
-
         description?: string;
     }
 
     interface IFileAttachment extends IAttachment {
         /** file */
         type: 'file';
-
         name: string;
-
         url: string;
-
         ID: string;
-
         fileSize: string;
-
         isMalicious: boolean;
-
         mimeType: string;
     }
 
     interface IPhotoAttachment extends IAttachment {
         /** photo */
         type: 'photo';
-
         ID: string;
-
         filename: string;
-
         thumbnailUrl: string;
-
         previewUrl: string;
-
         previewWidth: number;
-
         previewHeight: number;
-
         largePreviewUrl: string;
-
         largePreviewWidth: number;
-
         largePreviewHeight: number;
-
-        url: string;
-
+        url?: string;
         width: number;
-
         height: number;
     }
 
     interface IAnimatedImageAttachment extends IAttachment
     {
         type: 'animated_image';
-
         name: string;
-
         facebookUrl: string;
-
         previewUrl: string;
-
         previewWidth: number;
-
         previewHeight: number;
-
         thumbnailUrl: string;
-
         ID: string | '';
-
         filename?: string;
-
         mimeType?: string;
-
         width?: number;
-
         height?: number;
-
         url?: string;
-
         rawGifImage?: any;
-
         rawWebpImage?: any;
-
         animatedGifUrl?: string;
-
         animatedGifPreviewUrl?: string;
-
         animatedWebpUrl?: string;
-
         animatedWebpPreviewUrl?: string;
     }
 
     interface IVideoAttachment extends IAttachment {
         type: 'video';
-
         filename: string;
-
         thumbnailUrl: string;
-
         previewUrl: string;
-
         previewWidth: number;
-
         previewHeight: number;
-
         ID: string;
-
         url: string;
-
         width: number;
-
         height: number;
-
         duration: number;
     }
 
     interface IShareAttachment extends IAttachment {
         type: 'share';
-
         description: string;
-
         ID: string;
-
         animatedImageSize: {
             height: number,
             width: number
         };
-
         width: number;
-
         height: number;
-
         image: string;
-
         playable: boolean;
-
         duration: number;
-
         source: string;
-
         title: string;
-
         facebookUrl: string;
-
         target: any;
-
         styleList: string[];
-
         url?: string;
-
         subattachments: IShareSubAttachment[];
     }
 
     interface IShareSubAttachment {
         description: string;
-
         media: {
             animated_image: string,
             animated_image_size: { height: number, width: number },
@@ -434,37 +353,52 @@ declare namespace Facebook
             playable: boolean,
             source: string,
         },
-
         source: string;
-
         style_list: string[];
-
         title: string;
-
         properties: any;
-
         uri: string;
-
         forwadable: boolean;
-
         subattachments: IShareSubAttachment[];
-
         deduplication_key: string;
-
         action_links: string[];
-
         messaging_attribution: {
             attribution_type: string,
             attribution_id: string,
             name: string,
             icon_url: string
-        },
-
+        };
         messenger_ctas: string[];
-
         target: {
             video_id: string;
         } | any;
+    }
+
+    export interface IThreadHistoryMessage
+    {
+        type: 'message';
+        senderName: string;
+        senderID: string;
+        participantNames: string[];
+        participantIDs: string[];
+        body: string;
+        threadID: string;
+        threadName: string;
+        location: any;
+        messageID: string;
+        attachments: IAttachment[];
+        timestamp: number;
+        timestampAbsolute?: number;
+        timestampRelative?: number;
+        timestampDatetime?: number;
+        tags: string[];
+        reactions: IDictionary<string>;
+        isGroup: boolean;
+    }
+
+    export interface IDictionary<TValue>
+    {
+        [key: string]: TValue;
     }
 
     export class API
@@ -584,7 +518,7 @@ declare namespace Facebook
          * @param timestamp used to descride the time of the most recent message to load
          * @param callback callback called when the query is done, if error is null, history will contain an array of message objects
          */
-        public getThreadHistory(threadID: string, amount: number, timestamp: number, callback?: (err: Facebook.IError, history: Array<Facebook.IMessage>) => void);
+        public getThreadHistory(threadID: string, amount: number, timestamp: number, callback?: (err: Facebook.IError, history: Array<Facebook.IThreadHistoryMessage>) => void);
 
         /**
          * returns information about thread
@@ -623,14 +557,14 @@ declare namespace Facebook
          * @param ids user ids
          * @param callback callback called when the query is done
          */
-        public getUserInfo(ids: string, callback: (err: Facebook.IError, obj: Facebook.IUserInfoDictionary) => void): void;
+        public getUserInfo(ids: string, callback: (err: Facebook.IError, obj: Facebook.IDictionary<IUserInfo>) => void): void;
 
         /**
          * returns some information about the given users
          * @param ids user id
          * @param callback callback called when the query is done
          */
-        public getUserInfo(ids: string[], callback: (err: Facebook.IError, obj: Facebook.IUserInfoDictionary) => void): void;
+        public getUserInfo(ids: string[], callback: (err: Facebook.IError, obj: Facebook.IDictionary<IUserInfo>) => void): void;
 
         /**
          * accept or ignore message request(s) with id `threadID`
