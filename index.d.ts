@@ -556,10 +556,10 @@ declare namespace Facebook
 
         /**
          * given the full name or vanity name of a Facebook user, event, page, group or app, the call will perform a Facebook Graph search and return all corresponding IDs
-         * @param name 
-         * @param callback 
+         * @param name the full name or vanity name of a Facebook user, event, page, group or app
+         * @param callback called when the search is done
          */
-        public getUserID(name: string, callback: (err: Facebook.IError, obj: Array<{ userID: string, photoUrl: string, indexRank: number, name: string, isVerified: boolean, profileUrl: string, category: string, score: number, type: string }>) => void): void;
+        public getUserID(name: string, callback: (err: Facebook.IError, obj: Array<{ userID: string, photoUrl: string, indexRank: number, name: string, isVerified: boolean, profileUrl: string, category: string, score: number, type: 'user' | 'group' | 'page' | 'event' | 'app' }>) => void): void;
 
         /**
          * returns some information about the given users
