@@ -579,7 +579,7 @@ declare namespace Facebook
          * @returns stopListening that will stop the listen loop and is guaranteed to prevent any future calls to the callback given to listen.
          * @param callback callback called every time message/event is received
          */
-        public listen(callback: (error: Facebook.IError, message: Facebook.IReceived) => void): () => void;
+        public listen(callback: (error: Facebook.IError, event: Facebook.IReceived) => void): () => void;
 
         /**
          * logs out the current user
