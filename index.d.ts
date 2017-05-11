@@ -494,10 +494,19 @@ declare namespace Facebook
         /**
          * forwards corresponding attachment to given user id or to every user from array of user ids
          * @param attachmentID id of attachment object, not all attachments have IDs: recorded audio and arbitrary files don't
-         * @param userOrUsers user id(s) to forward attachment to
+         * @param user user id to forward attachment to
          * @param callback callback called when the query is done
          */
-        public forwardAttachment(attachmentID: string, userOrUsers: string | Array<string>, callback?: (err: Facebook.IError) => void): void;
+        public forwardAttachment(attachmentID: string, user: string, callback?: (err: Facebook.IError) => void): void;
+
+        /**
+         * forwards corresponding attachment to given user id or to every user from array of user ids
+         * @param attachmentID id of attachment object, not all attachments have IDs: recorded audio and arbitrary files don't
+         * @param users user ids to forward attachment to
+         * @param callback callback called when the query is done
+         */
+        public forwardAttachment(attachmentID: string, users: string[], callback?: (err: Facebook.IError) => void): void;
+
 
         /** returns current `appState` which can be saved to a file or stored in a variable */
         public getAppState(): void;
