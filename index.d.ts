@@ -639,7 +639,7 @@ declare namespace Facebook
          * @param messageID message id
          * @param callback callback called when sending the reaction is done
          */
-        public setMessageReaction(reaction: 'love' | 'haha' | 'wow' | 'sad' | 'angry' | 'like' | 'dislike', messageID: string, callback?: (err: Facebook.IError) => void): void;
+        public setMessageReaction(reaction: 'love' | 'haha' | 'wow' | 'sad' | 'angry' | 'like' | 'dislike' | '', messageID: string, callback?: (err: Facebook.IError) => void): void;
 
         /**
          * sets various configurable options for the api
