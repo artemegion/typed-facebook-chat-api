@@ -4,12 +4,7 @@ These typings are built basing on the [documentation](https://github.com/Schmave
 # How to install
 The below command will install newest version of the typings, they should match the bleeding edge version of [facebook-chat-api](https://github.com/Schmavery/facebook-chat-api#bleeding-edge).
 ```batch
-typings install facebook-chat-api=github:legion44/facebook-chat-api-typings --global --save
-```
-
-The below command will install typings compatible with [version 1.4.0](https://github.com/Schmavery/facebook-chat-api/blob/master/CHANGELOG.md#140-2017-04-28).
-```batch
-typings install faceboot-chat-api=github:legion44/facebook-chat-api-typings/index.d.ts#02948563e179b7863216bb1f164296a0481218d5 --global --save
+typings install facebook-chat-api=github:legion44/typed-facebook-chat-api --global --save
 ```
 
 # Example usage

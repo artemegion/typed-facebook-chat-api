@@ -1,0 +1,19 @@
+{
+    "name": "@types/facebook-chat-api",
+    "description": "Typings for facebook-chat-api module.",
+    "author": {
+        "email": "p.ignasiak26@gmail.com",
+        "name": "Paweł Ignasiak",
+        "url": "http://github.com/legion44"
+    },
+
+    "repository": {
+        "type": "github",
+        "url": "http://github.com/legion44/typed-facebook-chat-api"
+    },
+
+    "main": "index.d.ts",
+    "version": "1.4.0",
+    
+    "license": "MIT"
+}
