@@ -6,6 +6,10 @@ The below command will install newest version of the typings, they should match 
 ```batch
 typings install facebook-chat-api=github:legion44/typed-facebook-chat-api --global --save
 ```
+or, you can use npm
+```bash
+npm install --save-dev legion44/typed-facebook-chat-api
+```
 
 # Example usage
 ```typescript
@@ -25,3 +29,6 @@ login({ email: 'FB_EMAIL', password: 'FB_PASSWORD' }, (err: Facebook.ILoginError
     });
 });
 ```
+
+## License
+MIT
