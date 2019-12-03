@@ -22,6 +22,7 @@ declare namespace Facebook
         forceLogin?: boolean;
 
         pageID?: string;
+        userAgent?: string;
     }
 
     interface IError
