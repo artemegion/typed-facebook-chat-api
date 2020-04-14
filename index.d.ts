@@ -592,6 +592,13 @@ declare namespace Facebook
         public listen(callback: (error: Facebook.IError, event: Facebook.IReceived) => void): () => void;
 
         /**
+         * calls `callback` when a new message is received, by default this won't receive events but it can be activated with `api.setOptions`.
+         * @returns stopListening that will stop the listen loop and is guaranteed to prevent any future calls to the callback given to listen.
+         * @param callback callback called every time message/event is received
+         */
+        public listenMqtt(callback: (error: Facebook.IError, event: Facebook.IReceived) => void): () => void;
+
+        /**
          * logs out the current user
          * @param callback callback called when the query is done
          */
