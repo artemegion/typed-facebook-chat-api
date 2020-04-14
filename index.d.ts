@@ -592,9 +592,11 @@ declare namespace Facebook
         public listen(callback: (error: Facebook.IError, event: Facebook.IReceived) => void): () => void;
 
         /**
-         * calls `callback` when a new message is received, by default this won't receive events but it can be activated with `api.setOptions`.
+         * Same as api.listen but uses MQTT to recieve data.
+         *
+         * Will call callback when a new message is received on this account. By default this won't receive events (joining/leaving a chat, title change etc...) but it can be activated with api.setOptions({listenEvents: true}). This will by default ignore messages sent by the current account, you can enable listening to your own messages with api.setOptions({selfListen: true}). This returns stopListening that will stop the listen loop and is guaranteed to prevent any future calls to the callback given to listenMqtt. An immediate call to stopListening when an error occurs will prevent the listen function to continue.
          * @returns stopListening that will stop the listen loop and is guaranteed to prevent any future calls to the callback given to listen.
-         * @param callback callback called every time message/event is received
+         * @param callback a callback called every time the logged-in account receives a new message
          */
         public listenMqtt(callback: (error: Facebook.IError, event: Facebook.IReceived) => void): () => void;
 
