@@ -641,8 +641,9 @@ declare namespace Facebook
          * @param message a string or a message object
          * @param threadID thread id(s)
          * @param callback callback called when sending the message is done
+         * @param messageID messageID of the message being replied to
          */
-        public sendMessage(message: string | Facebook.IMessage, threadID: string | Array<string>, callback: (err: Facebook.IError, messageInfo: Facebook.IMessageInfo) => void): void;
+        public sendMessage(message: string | Facebook.IMessage, threadID: string | Array<string>, callback?: (err: Facebook.IError, messageInfo: Facebook.IMessageInfo) => void, messageID?: string): void;
 
         /**
          * 
